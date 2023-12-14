@@ -54,14 +54,14 @@ const Cart = () => {
                 </div>
               </div>
               <SheetFooter>
-                <SheetClose asChild>
+                <SheetTrigger asChild>
                   <Link
                     href="/cart"
                     className={buttonVariants({ className: "w-full" })}
                   >
                     Continue to checkout
                   </Link>
-                </SheetClose>
+                </SheetTrigger>
               </SheetFooter>
             </div>
           </>
@@ -73,6 +73,19 @@ const Cart = () => {
             >
               <Image src="/hippo-empty-cart.png" alt="empty cart image" fill />
             </div>
+            <div className="text-xl font-semibold">Your cart is empty</div>
+            <SheetTrigger asChild>
+              <Link
+                href="/products"
+                className={buttonVariants({
+                  variant: "link",
+                  size: "sm",
+                  className: "text-sm text-muted-foreground",
+                })}
+              >
+                Add items to your cart to checkout
+              </Link>
+            </SheetTrigger>
           </div>
         )}
       </SheetContent>
