@@ -16,7 +16,6 @@ import {
 import { trpc } from "@/trpc/client";
 import { toast } from "sonner";
 import { ZodError } from "zod";
-import { useRouter } from "next/router";
 const Page = () => {
   const {
     register,
@@ -26,7 +25,6 @@ const Page = () => {
     resolver: zodResolver(AuthCredentialsValidator),
   });
 
-  const router = useRouter()
 
   const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
     onError: (err) => {
@@ -45,7 +43,7 @@ const Page = () => {
     },
     onSuccess:({sentToEmail})=>{
       toast.success(`Verification email sent to ${sentToEmail}`);
-      router.push('/verify-email?to='+sentToEmail)
+      // router.push('/verify-email?to='+sentToEmail)
     }
   });
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {

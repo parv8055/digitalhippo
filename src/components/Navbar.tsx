@@ -1,11 +1,13 @@
 import Link from "next/link";
-import MaxWidthWrapper from "./maxWidthWrapper";
+import { cookies } from "next/headers";
 import { Icons } from "./Icons";
 import NavItems from "./NavItems";
 import { buttonVariants } from "./ui/button";
 import Cart from "./Cart";
+import MaxWidthWrapper from "./maxWidthWrapper";
 
 const Navbar = () => {
+  const nextCookies = cookies();
   const user = null;
   return (
     <div className="bg-white sticky z-50 top-0 insert-x-0 h-16">
